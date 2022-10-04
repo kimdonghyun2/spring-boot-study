@@ -18,7 +18,7 @@ import java.util.List;
 public class MemberController {
 
     private final MemberService memberService;
-
+   
     @GetMapping("/members/new")
     public String createForm(Model model) {
         model.addAttribute("memberForm", new MemberForm());
@@ -46,28 +46,6 @@ public class MemberController {
         return "redirect:/";
     }
     
-//    @PostMapping("/members/login")
-//    public String login(@Valid LoginForm form, BindingResult result) {
-//    	if (result.hasErrors()) {
-//            return "members/LoginMemberForm";
-//        }
-//    	
-//    	Member member = new Member();
-//    	
-//    	member.setUserid(form.getUserid());
-//        member.setPassword(form.getPassword());
-//        Long id = memberService.login(member);
-//        
-//        return "redirect:/";
-//    }
-    
-    @GetMapping("/members/login")
-    public String loginForm(Model model) {
-        model.addAttribute("memberForm", new MemberForm());
-        return "members/loginMemberForm";
-    }
-
-
     @GetMapping("/members")
     public String list(Model model) {
         List<Member> members = memberService.findMembers();

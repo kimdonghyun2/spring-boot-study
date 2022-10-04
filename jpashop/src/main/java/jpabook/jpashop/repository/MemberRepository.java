@@ -22,6 +22,13 @@ public class MemberRepository {
         
     }
     
+    public Member findOneById(String userid) {
+    	return em.createQuery("select m from Member m where m.userid = :userid", Member.class)
+                .setParameter("userid", userid)
+                .getSingleResult();
+        
+    }
+    
     public List<Member> login(Member member) {
     	
     	return em.createQuery("select m from Member m where m.userid = :userid and m.password = :password", Member.class)

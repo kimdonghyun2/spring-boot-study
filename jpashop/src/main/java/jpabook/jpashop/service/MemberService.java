@@ -26,13 +26,6 @@ public class MemberService {
         memberRepository.save(member);
         return member.getId();
     }
-    
-//    @Transactional
-//    public Long login(Member member) {
-//    	
-//        memberRepository.login(member);
-//        return member.getId();
-//    }
 
     private void validateDuplicateMember(Member member) {
 //        List<Member> findMembers = memberRepository.findByName(member.getName());
